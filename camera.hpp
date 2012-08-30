@@ -13,6 +13,10 @@ public:
         //cam.set(CV_CAP_PROP_POS_AVI_RATIO, 1);
         //cam.set(CV_CAP_PROP_FRAME_WIDTH, 1280);
         //cam.set(CV_CAP_PROP_FRAME_HEIGHT, 720);
+	    if (!cam.isOpened())
+        {
+            std::cerr << "Cannot open camera" << std::endl;
+        }
     }
 
     void operator>>(Mat& img)
