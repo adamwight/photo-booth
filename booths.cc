@@ -1,5 +1,8 @@
-#include <stdio.h>
+#include <errno.h>
 #include <iostream>
+#include <stdexcept>
+#include <stdio.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 #include <opencv2/opencv.hpp>
@@ -26,17 +29,29 @@ public:
         display(display),
         detector(cam.getSize())
     {
+        // FIXME: hardcoded output dir
+        int success = mkdir("archive", 0755);
+        if (success != 0 && errno != EEXIST)
+        {
+            throw runtime_error("Couldn't create output directory! [");
+        }
     }
 
     void eventloop()
     {
         for (;;)
         {
+            // Capture a frame.
             Mat snap;
             cam >> snap;
+            // Feed it to the motion detector.
             detector.addFrame(snap);
+            // Overlay a score for the amount of motion detected.
             Drawing::thermometer(snap, (float)detector.score / (float)detector.motion_score_threshold);
+            // Draw to the screen.
             display << snap;
+
+            // Wait 20ms.
             waitKey(20);
 
             if (detector.isMotion())
@@ -57,11 +72,14 @@ public:
                     waitKey(500);
                 }
 
+                // Build 4-up.
                 Mat composite;
                 Drawing::tile(composite, snaps);
 
+                // Save to disk, or throw an error.
                 archive(snaps);
 
+                // Provide satisfying 10s glimpse of own selves.
                 display << composite;
                 waitKey(10 * 1000);
                 detector.reset();
@@ -81,7 +99,11 @@ public:
             char path[256];
             snprintf(path, 256, "archive/%s_%d.jpg", stamp, i);
 
-            imwrite(string(path), series[i]);
+            bool success = imwrite(string(path), series[i]);
+            if (!success)
+            {
+                throw runtime_error(string("Could not write image file [") + path + "]");
+            }
         }
     }
 
