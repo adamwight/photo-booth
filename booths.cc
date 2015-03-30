@@ -8,6 +8,7 @@
 #include <opencv2/opencv.hpp>
 
 #include "camera.hpp"
+#include "config.hpp"
 #include "screen.hpp"
 #include "motion_detector.hpp"
 #include "drawing.hpp"
@@ -22,15 +23,17 @@ class BoothApp
     Camera& cam;
     Screen& display;
     MotionDetector detector;
+    Config config;
 
 public:
     BoothApp(Camera& cam, Screen& display) :
         cam(cam),
         display(display),
-        detector(cam.getSize())
+        detector(cam.getSize()),
+        config("config.yaml")
     {
         // FIXME: hardcoded output dir
-        int success = mkdir("archive", 0755);
+        int success = mkdir(config.output_dir.c_str(), 0755);
         if (success != 0 && errno != EEXIST)
         {
             throw runtime_error("Couldn't create output directory! [");
@@ -51,25 +54,31 @@ public:
             // Draw to the screen.
             display << snap;
 
-            // Wait 20ms.
-            waitKey(20);
+            // Pause between frames, to let the box cool down.
+            waitKey(config.motion_interval * 1000);
 
             if (detector.isMotion())
             {
                 Sound("begin");
-                countdown(10, 5);
 
                 vector<Mat> snaps(4);
                 for (int i = 0; i < 4; i++)
                 {
-                    countdown(5);
+                    if (i == 0)
+                    {
+                        countdown(config.initial_countdown);
+                    }
+                    else
+                    {
+                        countdown(config.countdown);
+                    }
 
                     Mat tmp;
                     cam >> tmp;
                     Sound("shot");
                     display << tmp;
                     tmp.copyTo(snaps[i]);
-                    waitKey(500);
+                    waitKey(config.frame_spacing * 1000);
                 }
 
                 // Build 4-up.
@@ -81,12 +90,16 @@ public:
 
                 // Provide satisfying 10s glimpse of own selves.
                 display << composite;
-                waitKey(10 * 1000);
+                waitKey(config.satisfied_pause * 1000);
+
                 detector.reset();
             }
         }
     }
 
+    /**
+     * Save each frame to a file.
+     */
     void archive(vector<Mat> series)
     {
         time_t clocks;
@@ -96,8 +109,9 @@ public:
         {
             char stamp[256];
             strftime(stamp, 256, "%F_%H:%M:%S", now);
-            char path[256];
-            snprintf(path, 256, "archive/%s_%d.jpg", stamp, i);
+            char path[1024];
+            snprintf(path, 1024, "%s/%s_%d.jpg", config.output_dir.c_str(), stamp, i);
+            // TODO: Check that this file doesn't exist yet.
 
             bool success = imwrite(string(path), series[i]);
             if (!success)
@@ -107,6 +121,9 @@ public:
         }
     }
 
+    /**
+     * Run a countdown spinner, overlaid on live camera capture
+     */
     void countdown(int count, int end = 0)
     {
         Timer t;

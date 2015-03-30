@@ -10,17 +10,19 @@ public:
     Mat difference;
     float score, minimum_area, motion_score_threshold, acculum_weight, max_allowed_area;
     bool initialized;
+    Config config;
 
 public:
     MotionDetector(Size size) :
         steady(Mat::zeros(size, CV_32F)),
+        initialized(false),
         score(0),
-        minimum_area(.3),
-        max_allowed_area(.8),
-        acculum_weight(.33),
-        motion_score_threshold(10),
-        initialized(false)
+        config("config.yaml")
     {
+        minimum_area = config.minimum_area;
+        max_allowed_area = config.max_allowed_area;
+        acculum_weight = config.acculum_weight;
+        motion_score_threshold = config.motion_score_threshold;
     }
 
     void addFrame(Mat img)
