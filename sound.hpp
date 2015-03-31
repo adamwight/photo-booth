@@ -3,26 +3,18 @@
 
 class Sound
 {
+    Config config;
+
 public:
-    Sound(const char* name)
+    Sound(const char* name) :
+        config("config.yaml")
     {
-        if (0 == strcmp(name, "begin"))
-        {
-            name = "sounds/borg_tractor_beam.mp3";
-        } 
-        else if (0 == strcmp(name, "tick"))
-        {
-            name = "sounds/romulan_computerbeep1.mp3";
-        }
-        else if (0 == strcmp(name, "shot"))
-        {
-            name = "sounds/tos_keypress3.mp3";
-        }
+        string filename = config.sounds[name];
 
         if (0 == fork())
         {
-            char* buf = new char[256];
-            snprintf(buf, 256, "mpg321 -q %s", name);
+            char* buf = new char[1024];
+            snprintf(buf, 1024, "mpg321 -q %s", filename.c_str());
             system(buf);
             delete(buf);
             exit(0);

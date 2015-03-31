@@ -14,6 +14,7 @@ public:
     int initial_countdown;
     int countdown;
     float minimum_area, max_allowed_area, acculum_weight, motion_score_threshold;
+    map<string, string> sounds;
 
     Config(string path)
     {
@@ -34,5 +35,10 @@ public:
         fs["max_allowed_area"] >> max_allowed_area;
         fs["acculum_weight"] >> acculum_weight;
         fs["motion_score_threshold"] >> motion_score_threshold;
+
+        for (FileNodeIterator iter = fs["sounds"].begin(); iter != fs["sounds"].end(); iter++)
+        {
+            sounds[(*iter).name()] = (string)(*iter);
+        }
     }
 };
