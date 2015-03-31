@@ -5,7 +5,7 @@ Installing
 ==========
 
 * You'll need a binary, at the moment you will have to follow the instructions below, under "Development".
-* sudo apt-get install wget sox libopencv-core2.3 libopencv-imgproc2.3
+* sudo apt-get install wget mpg321 libopencv-core2.3 libopencv-imgproc2.3
 
 Configuration
 =============

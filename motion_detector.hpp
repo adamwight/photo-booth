@@ -16,8 +16,7 @@ public:
     MotionDetector(Size size) :
         steady(Mat::zeros(size, CV_32F)),
         initialized(false),
-        score(0),
-        config("config.yaml")
+        score(0)
     {
         minimum_area = config.minimum_area;
         max_allowed_area = config.max_allowed_area;

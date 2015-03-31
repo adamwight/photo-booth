@@ -9,20 +9,32 @@ public:
     string output_dir;
     float frame_spacing;
     float satisfied_pause;
-    //string soundfile[];
-    //string mpg_play;
     int initial_countdown;
     int countdown;
     float minimum_area, max_allowed_area, acculum_weight, motion_score_threshold;
+    string sound_cmd;
     map<string, string> sounds;
 
-    Config(string path)
+    Config()
     {
-        FileStorage fs(path, FileStorage::READ);
+        vector<string> path_preference{
+            "config.yaml",
+            "/etc/booths/config.yaml"
+        };
+        FileStorage fs;
+        for (string &path : path_preference)
+        {
+            fs.open(path, FileStorage::READ);
 
+            if (fs.isOpened())
+            {
+                break;
+            }
+        }
         if (!fs.isOpened())
         {
-            throw runtime_error(string("Couldn't open config file [") + path + "]");
+            // TODO: Log search path.
+            throw runtime_error(string("Couldn't find config file."));
         }
 
         fs["motion_interval"] >> motion_interval;
@@ -35,10 +47,12 @@ public:
         fs["max_allowed_area"] >> max_allowed_area;
         fs["acculum_weight"] >> acculum_weight;
         fs["motion_score_threshold"] >> motion_score_threshold;
+        fs["sound_cmd"] >> sound_cmd;
 
-        for (FileNodeIterator iter = fs["sounds"].begin(); iter != fs["sounds"].end(); iter++)
+        // Copy the map of soundfiles.
+        for (FileNode sound : fs["sounds"])
         {
-            sounds[(*iter).name()] = (string)(*iter);
+            sounds[sound.name()] = (string)sound;
         }
     }
 };

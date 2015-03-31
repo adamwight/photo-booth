@@ -2,7 +2,6 @@
 #include <iostream>
 #include <stdexcept>
 #include <stdio.h>
-#include <sys/stat.h>
 #include <unistd.h>
 
 #include <opencv2/opencv.hpp>
@@ -29,8 +28,7 @@ public:
     BoothApp(Camera& cam, Screen& display) :
         cam(cam),
         display(display),
-        detector(cam.getSize()),
-        config("config.yaml")
+        detector(cam.getSize())
     {
         // FIXME: hardcoded output dir
         int success = mkdir(config.output_dir.c_str(), 0755);
