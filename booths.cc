@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <stdio.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 #include <opencv2/opencv.hpp>
@@ -71,20 +72,23 @@ public:
                         countdown(config.countdown);
                     }
 
-                    Mat tmp;
-                    cam >> tmp;
                     Sound("shot");
-                    display << tmp;
-                    tmp.copyTo(snaps[i]);
-                    waitKey(config.frame_spacing * 1000);
+                    Mat captured;
+                    cam >> captured;
+                    display << captured;
+
+                    // Save to disk, or throw an error.
+                    archive(captured, to_string(i));
+
+                    // Stash for building 4-up.
+                    captured.copyTo(snaps[i]);
+
+                    waitKey(config.frame_pause * 1000);
                 }
 
                 // Build 4-up.
                 Mat composite;
                 Drawing::tile(composite, snaps);
-
-                // Save to disk, or throw an error.
-                archive(snaps);
 
                 // Provide satisfying 10s glimpse of own selves.
                 display << composite;
@@ -98,24 +102,29 @@ public:
     /**
      * Save each frame to a file.
      */
-    void archive(vector<Mat> series)
+    void archive(Mat img, string suffix = "")
     {
         time_t clocks;
         time(&clocks);
         const struct tm* now = localtime(&clocks);
-        for (int i = 0; i < series.size(); i++)
+        char stamp[256];
+        strftime(stamp, 256, "%F_%H:%M:%S", now);
+        char path[1024];
+        if (suffix != "")
         {
-            char stamp[256];
-            strftime(stamp, 256, "%F_%H:%M:%S", now);
-            char path[1024];
-            snprintf(path, 1024, "%s/%s_%d.jpg", config.output_dir.c_str(), stamp, i);
-            // TODO: Check that this file doesn't exist yet.
+            suffix = string("_") + suffix;
+        }
+        snprintf(path, 1024, "%s/%s%s.jpg", config.output_dir.c_str(), stamp, suffix.c_str());
 
-            bool success = imwrite(string(path), series[i]);
-            if (!success)
-            {
-                throw runtime_error(string("Could not write image file [") + path + "]");
-            }
+        struct stat buf;
+        if (stat(path, &buf) == 0)
+        {
+            throw runtime_error(string("This file already exists! [") + path + "]");
+        }
+        bool success = imwrite(string(path), img);
+        if (!success)
+        {
+            throw runtime_error(string("Could not write image file [") + path + "]");
         }
     }
 

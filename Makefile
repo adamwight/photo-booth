@@ -21,7 +21,7 @@ clean:
 
 deb: clean fetch_sounds
 	# TODO: Need to workaround this.
-	pushd ..; tar cjf booths_1.0.0.orig.tar.bz2 booths; popd
+	# pushd ..; tar cjf booths_1.0.0.orig.tar.bz2 booths; popd
 	debuild -us -uc
 
 fetch_sounds:

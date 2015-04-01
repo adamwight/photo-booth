@@ -7,7 +7,7 @@ class Config
 public:
     float motion_interval;
     string output_dir;
-    float frame_spacing;
+    float frame_pause;
     float satisfied_pause;
     int initial_countdown;
     int countdown;
@@ -38,7 +38,7 @@ public:
         }
 
         fs["motion_interval"] >> motion_interval;
-        fs["frame_spacing"] >> frame_spacing;
+        fs["frame_pause"] >> frame_pause;
         fs["satisfied_pause"] >> satisfied_pause;
         fs["output_dir"] >> output_dir;
         fs["countdown"] >> countdown;

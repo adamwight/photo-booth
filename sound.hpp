@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string.h>
 #include <stdlib.h>
 #include <sys/stat.h>
@@ -24,7 +25,7 @@ public:
                 return;
             }
         }
-        // TODO: Log failure.
+        cerr << "Failed to find soundfile " << config.sounds[name];
     }
 
 protected:

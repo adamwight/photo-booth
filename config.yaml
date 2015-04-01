@@ -4,7 +4,7 @@ initial_countdown: 10
 
 motion_interval: 0.02
 
-frame_spacing: 0.5
+frame_pause: 0.5
 
 satisfied_pause: 10.0
 
