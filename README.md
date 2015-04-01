@@ -4,8 +4,8 @@ detector is activated, then beam your party into the future!
 Installing
 ==========
 
-* You'll need a binary, at the moment you will have to follow the instructions below, under "Development".
-* sudo apt-get install wget mpg321 libopencv-core2.3 libopencv-imgproc2.3
+* sudo apt-get install mpg321 libopencv-core2.3 libopencv-imgproc2.3
+* Download and install the Debian package from the (releases)[https://github.com/adamwight/booths/releases] page, or build the binary according to the instructions in "Development" below.
 
 Configuration
 =============
