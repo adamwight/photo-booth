@@ -1,9 +1,12 @@
 #include <errno.h>
 #include <iostream>
+#include <libintl.h>
 #include <stdexcept>
 #include <stdio.h>
 #include <sys/stat.h>
 #include <unistd.h>
+
+#define _(String) gettext (String)
 
 #include <opencv2/opencv.hpp>
 
@@ -155,11 +158,28 @@ public:
     }
 };
 
+class Locale {
+public:
+    static void init() {
+        const char* locale = setlocale(LC_ALL, "");
+        if (!locale) {
+            cerr << "Could not honor locale settings!" << endl;
+        }
+        bindtextdomain("booths", NULL);
+        textdomain("booths");
+    }
+};
+
 int main()
 {
+    // Set locale from the environment.
+    Locale::init();
+
+    // Open the first camera, and a display of matching dimensions.
     Camera cam(0);
     Screen display(cam.getSize());
 
+    // Create the app and run its eventloop.
     BoothApp app(cam, display);
     app.eventloop();
 }

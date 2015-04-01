@@ -2,3 +2,4 @@ build
 sounds
 debian/booths
 debian/files
+locale/*/LC_MESSAGES/booths.mo

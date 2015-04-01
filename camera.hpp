@@ -1,3 +1,4 @@
+#include <libintl.h>
 #include <opencv2/opencv.hpp>
 
 using namespace cv;
@@ -15,7 +16,7 @@ public:
         //cam.set(CV_CAP_PROP_FRAME_HEIGHT, 720);
 	    if (!cam.isOpened())
         {
-            std::cerr << "Cannot open camera" << std::endl;
+            std::cerr << _("Cannot open camera") << std::endl;
         }
     }
 

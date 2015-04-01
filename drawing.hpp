@@ -1,3 +1,4 @@
+#include <libintl.h>
 #include <stdio.h>
 
 #include <opencv2/opencv.hpp>
@@ -100,11 +101,11 @@ public:
         int thickness = 2;
         string text;
         if (progress < .1)
-            text = "Idle";
+            text = _("Idle");
         else if (progress < .5)
-            text = "Make a move.";
+            text = _("Make a move.");
         else
-            text = "Keep moving!";
+            text = _("Keep moving!");
         putText(img, text,
             Point(pt1.x + 10, pt1.y + h + 30), fontFace, fontScale,
             CV_RGB(255, 255, 255), thickness, 8);

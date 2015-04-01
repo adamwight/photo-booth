@@ -1,3 +1,4 @@
+#include <libintl.h>
 #include <opencv2/opencv.hpp>
 
 using namespace std;
@@ -34,7 +35,7 @@ public:
         if (!fs.isOpened())
         {
             // TODO: Log search path.
-            throw runtime_error(string("Couldn't find config file."));
+            throw runtime_error(string(_("Couldn't find config file.")));
         }
 
         fs["motion_interval"] >> motion_interval;

@@ -17,3 +17,5 @@ install(FILES config.yaml
     COMPONENT config)
 install(DIRECTORY sounds
     DESTINATION share/booths)
+install(DIRECTORY build/locale
+    DESTINATION share)

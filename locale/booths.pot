@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Adam Roses Wight <adamw@ludd.net>
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: booths 1.0.0-rc3\n"
+"Report-Msgid-Bugs-To: adamw@ludd.net\n"
+"POT-Creation-Date: 2015-04-23 03:51-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: camera.hpp:19
+msgid "Cannot open camera"
+msgstr ""
+
+#: config.hpp:38
+msgid "Couldn't find config file."
+msgstr ""
+
+#: drawing.hpp:104
+msgid "Idle"
+msgstr ""
+
+#: drawing.hpp:106
+msgid "Make a move."
+msgstr ""
+
+#: drawing.hpp:108
+msgid "Keep moving!"
+msgstr ""

@@ -1,0 +1,38 @@
+# Spanish translations for booths package.
+# Copyright (C) 2015 Adam Roses Wight <adamw@ludd.net>
+# This file is distributed under the same license as the booths package.
+# adamw <adamw@wreck>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: booths 1.0.0-rc3\n"
+"Report-Msgid-Bugs-To: adamw@ludd.net\n"
+"POT-Creation-Date: 2015-04-20 00:45-0700\n"
+"PO-Revision-Date: 2015-04-20 00:47-0700\n"
+"Last-Translator: Adam Roses Wight <adamw@ludd.net>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: camera.hpp:19
+msgid "Cannot open camera"
+msgstr "No se puede abrir una cámara"
+
+#: config.hpp:38
+msgid "Couldn't find config file."
+msgstr "No se puede abrir el archivo de configuración"
+
+#: drawing.hpp:104
+msgid "Idle"
+msgstr "Inactivo"
+
+#: drawing.hpp:106
+msgid "Make a move."
+msgstr "Salta como conejo"
+
+#: drawing.hpp:108
+msgid "Keep moving!"
+msgstr "¡Todavía no es la hora de dormir!"
