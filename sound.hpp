@@ -9,9 +9,9 @@ class Sound
 public:
     Sound(const char* name)
     {
-        // TODO: Cache result.
+        // TODO: Cache sounds.  Preload, even.
         vector<string> path_preference{
-            "",
+            "", // cwd
             "/usr/share/booths/",
         };
 
@@ -32,6 +32,7 @@ protected:
     {
         if (0 == fork())
         {
+            // Exec in child process.
             char* buf = new char[1024];
             snprintf(buf, 1024, config.sound_cmd.c_str(), filename.c_str());
             system(buf);

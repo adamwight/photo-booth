@@ -6,10 +6,10 @@
 	fetch_sounds \
 	install
 
-all: cmake compile fetch_sounds
+all: cmake compile
 
 # TODO: Move install prefix cruft to debian/rules.
-cmake:
+cmake: fetch_sounds
 	mkdir -p build
 	cd build && cmake -D CMAKE_INSTALL_PREFIX=/usr ..
 
@@ -19,9 +19,9 @@ compile:
 clean:
 	rm -rf build
 
-deb: clean
-	# TODO: Need to workaround this?
-	# tar cjf booths_1.0.0.orig.tar.bz2 booths/
+deb: clean fetch_sounds
+	# TODO: Need to workaround this.
+	pushd ..; tar cjf booths_1.0.0.orig.tar.bz2 booths; popd
 	debuild -us -uc
 
 fetch_sounds:

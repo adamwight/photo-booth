@@ -20,5 +20,14 @@ Running
 Development
 ===========
 
+* git clone https://github.com/adamwight/booths.git
 * Follow this [tutorial](http://docs.opencv.org/doc/tutorials/introduction/linux_install/linux_install.html#linux-installation) to build an OpenCV development environment.
+* apt-get install git libopencv-dev cmake
 * Go to the root directory of this project, and run "make".
+
+To build a .deb,
+```
+apt-get install devscripts debhelper
+pushd ..; tar cjf booths_1.0.0.orig.tar.bz2 booths; popd
+make deb
+```
