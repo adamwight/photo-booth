@@ -10,6 +10,7 @@ public:
     string output_dir;
     float frame_pause;
     float satisfied_pause;
+    int camera_id;
     int initial_countdown;
     int countdown;
     float minimum_area, max_allowed_area, acculum_weight, motion_score_threshold;
@@ -42,6 +43,7 @@ public:
         fs["frame_pause"] >> frame_pause;
         fs["satisfied_pause"] >> satisfied_pause;
         fs["output_dir"] >> output_dir;
+        fs["camera_id"] >> camera_id;
         fs["countdown"] >> countdown;
         fs["initial_countdown"] >> initial_countdown;
         fs["minimum_area"] >> minimum_area;

@@ -1,4 +1,7 @@
 %YAML:1.2
+
+# Which camera to open, zero-based device id.
+camera_id: 0
 countdown: 5
 initial_countdown: 10
 

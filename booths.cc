@@ -175,8 +175,8 @@ int main()
     // Set locale from the environment.
     Locale::init();
 
-    // Open the first camera, and a display of matching dimensions.
-    Camera cam(0);
+    // Open the camera and a matching display.
+    Camera cam(config.camera_id);
     Screen display(cam.getSize());
 
     // Create the app and run its eventloop.
