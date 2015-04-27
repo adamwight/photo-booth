@@ -61,7 +61,7 @@ public:
 
             if (detector.isMotion())
             {
-                Sound("begin");
+                Sound::play("begin");
 
                 vector<Mat> snaps(4);
                 for (int i = 0; i < 4; i++)
@@ -75,7 +75,7 @@ public:
                         countdown(config.countdown);
                     }
 
-                    Sound("shot");
+                    Sound::play("shot");
                     Mat captured;
                     cam >> captured;
                     display << captured;
@@ -143,7 +143,7 @@ public:
             remaining = count - t.seconds();
             if (remaining != current)
             {
-                Sound("tick");
+                Sound::play("tick");
                 current = remaining;
             }
             float fractional = 1 - t.fractional();
