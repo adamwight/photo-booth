@@ -1,6 +1,9 @@
-#include <vector>
-
-#include <opencv2/opencv.hpp>
+#include <opencv2/core/types_c.h>
+#include <opencv2/highgui/highgui_c.h>
+#include <opencv2/core/core.hpp>
+#include <opencv2/core/mat.hpp>
+#include <opencv2/core/operations.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 using namespace std;
 using namespace cv;

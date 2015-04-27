@@ -1,7 +1,17 @@
-#include <libintl.h>
+#include <ext/alloc_traits.h>
+#include <opencv2/core/core_c.h>
+#include <opencv2/core/types_c.h>
+#include <opencv2/core/core.hpp>
+#include <opencv2/core/mat.hpp>
+#include <opencv2/core/operations.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <stdio.h>
+#include <string>
+#include <vector>
 
-#include <opencv2/opencv.hpp>
+#include "locale.hpp"
+
+using namespace cv;
 
 class Drawing
 {

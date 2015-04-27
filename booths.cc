@@ -1,11 +1,14 @@
 #include <errno.h>
-#include <iostream>
+#include <opencv2/core/core.hpp>
+#include <opencv2/core/mat.hpp>
+#include <opencv2/core/operations.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include <stdexcept>
 #include <stdio.h>
+#include <string>
 #include <sys/stat.h>
-#include <unistd.h>
-
-#include <opencv2/opencv.hpp>
+#include <time.h>
+#include <vector>
 
 #include "camera.hpp"
 #include "config.hpp"

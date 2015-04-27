@@ -1,7 +1,16 @@
-#include <opencv2/opencv.hpp>
+#ifndef CONFIG_HPP
+#define CONFIG_HPP 1
+
+#include <map>
+#include <opencv2/core/core.hpp>
+#include <opencv2/core/operations.hpp>
+#include <string>
+#include <stdexcept>
+#include <vector>
 
 #include "locale.hpp"
 
+using namespace cv;
 using namespace std;
 
 class Config
@@ -60,3 +69,5 @@ public:
         }
     }
 };
+
+#endif

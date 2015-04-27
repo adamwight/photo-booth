@@ -1,7 +1,16 @@
 #include <iostream>
-#include <string.h>
+#include <map>
+#include <stdio.h>
 #include <stdlib.h>
+#include <string>
 #include <sys/stat.h>
+#include <unistd.h>
+#include <vector>
+
+#include "config.hpp"
+#include "locale.hpp"
+
+using namespace std;
 
 class Sound
 {
@@ -47,6 +56,8 @@ protected:
         // We fell through...
         // FIXME: lego string
         cerr << _("Failed to find soundfile ") << config.sounds[name];
+        // kludge
+        return "";
     }
 
     void play_file()

@@ -2,7 +2,7 @@ Source: booths
 Maintainer: Adam Roses Wight <adamw@ludd.net>
 Section: graphics
 Priority: optional
-Build-Depends: debhelper (>= 9)
+Build-Depends: debhelper (>= 9), cmake, libopencv-core-dev, libopencv-imgproc-dev
 Standards-Version: 3.9.6.0
 Homepage: https://github.com/adamwight/booths
 Vcs-Browser: https://github.com/adamwight/booths
@@ -10,6 +10,6 @@ Vcs-Git: git://github.com/adamwight/booths.git
 
 Package: booths
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, mpg321, cmake, opencv-core2.3, opencv-imgproc2.3
+Depends: ${shlibs:Depends}, ${misc:Depends}, mpg321
 Description: Self-serve photo booth software
  Flail your arms until the motion detector is activated, then beam your party into the future!
