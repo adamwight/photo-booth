@@ -27,21 +27,26 @@ protected:
 
     string find_file(string name)
     {
-        // TODO: Cache sounds.  Preload, even.
+        // TODO: Preload and cache sounds.
+        // TODO: Path preferences should be built into the install script.
         vector<string> path_preference{
             "", // cwd
             "/usr/share/booths/",
         };
 
+        // Try each possible path and play the first match.
         for (string prefix : path_preference)
         {
             string filename = prefix + config.sounds[name];
             struct stat buf;
+            // The file exists?
             if (stat(filename.c_str(), &buf) == 0) {
                 return filename;
             }
         }
-        cerr << "Failed to find soundfile " << config.sounds[name];
+        // We fell through...
+        // FIXME: lego string
+        cerr << _("Failed to find soundfile ") << config.sounds[name];
     }
 
     void play_file()
@@ -52,7 +57,7 @@ protected:
         // Fork and play.
         if (0 == fork())
         {
-            // Exec in child process.
+            // In child process, run the commandline in a shell.
             char* buf = new char[1024];
             snprintf(buf, 1024, config.sound_cmd.c_str(), filename.c_str());
             system(buf);

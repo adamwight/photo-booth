@@ -3,10 +3,16 @@
 
 using namespace cv;
 
+/**
+ * Interface with the capture source
+ */
 class Camera
 {
     VideoCapture cam;
 public:
+    /**
+     * Open a camera
+     */
     Camera(int device_id) :
         cam(device_id)
     {
@@ -20,11 +26,17 @@ public:
         }
     }
 
+    /**
+     * Capture a frame
+     */
     void operator>>(Mat& img)
     {
         cam >> img;
     }
 
+    /**
+     * Get the capture dimensions
+     */
     Size getSize()
     {
         Size s(

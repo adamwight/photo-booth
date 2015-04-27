@@ -2,28 +2,52 @@
 
 # Which camera to open, zero-based device id.
 camera_id: 0
+
+# Seconds to countdown between captures.
 countdown: 5
+# First countdown duration in a volley, in seconds.
 initial_countdown: 10
 
+# TODO: num_volleys
+
+# Polling interval for realtime video, in seconds.  Higher values will
+# use less processor on older hardware, lower values will be more
+# responsive.
+# TODO: Lag time goes up too quickly, there is a bug here.
 motion_interval: 0.02
 
+# How long each shot is displayed after taken, in seconds.
 frame_pause: 0.5
 
+# Pause while the final collage is displayed, in seconds.
 satisfied_pause: 10.0
 
+# Directory path where image files will be written.
+# TODO: relative path fail?
 output_dir: booths-archive
 
+# Motion detection settings.
+# TODO: These numbers are twitchy, narrow ranges work at all.
+# TODO: This should adapt to light and contrast conditions,
+# but does not.
 minimum_area: 0.3
 max_allowed_area: 0.8
 acculum_weight: 0.33
 motion_score_threshold: 10
 
+# Commandline to play a sound file.  Adjust if you want to use
+# a player other than the default.
 sound_cmd: mpg321 -q %s
 
+# Path to sound effect files.
+# TODO: relative path fail?
 sounds:
+    # Played when the motion detection threshold is tripped.
     begin:
         sounds/borg_tractor_beam.mp3
-    tick:
-        sounds/romulan_computerbeep1.mp3
+    # Capture is happening now.
     shot:
         sounds/tos_keypress3.mp3
+    # Countdown second has passed.
+    tick:
+        sounds/romulan_computerbeep1.mp3
