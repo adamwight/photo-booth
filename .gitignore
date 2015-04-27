@@ -1,5 +1,6 @@
 build
 sounds
 debian/booths
+debian/booths.debhelper.log
+debian/booths.substvars
 debian/files
-locale/*/LC_MESSAGES/booths.mo
