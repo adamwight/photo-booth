@@ -1,5 +1,5 @@
-booths (1.0.0-rc.2) UNRELEASED; urgency=low
+booths (1.0.0~rc2-1) UNRELEASED; urgency=low
 
-  * Initial release. (Closes: #7)
+  * Initial release. (Closes: #TODO)
 
  -- Adam Roses Wight <spam@ludd.net>  Tue, 31 Mar 2015 00:12:17 -0700
