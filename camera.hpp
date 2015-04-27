@@ -1,5 +1,6 @@
-#include <libintl.h>
 #include <opencv2/opencv.hpp>
+
+#include "locale.hpp"
 
 using namespace cv;
 
@@ -9,13 +10,14 @@ using namespace cv;
 class Camera
 {
     VideoCapture cam;
+
 public:
     /**
-     * Open a camera
+     * Open the camera device
      */
-    Camera(int device_id) :
-        cam(device_id)
+    void open(int device_id)
     {
+        cam.open(device_id);
         //cam.set(CV_CAP_PROP_FPS, 2);
         //cam.set(CV_CAP_PROP_POS_AVI_RATIO, 1);
         //cam.set(CV_CAP_PROP_FRAME_WIDTH, 1280);

@@ -1,17 +1,15 @@
 #include <errno.h>
 #include <iostream>
-#include <libintl.h>
 #include <stdexcept>
 #include <stdio.h>
 #include <sys/stat.h>
 #include <unistd.h>
 
-#define _(String) gettext (String)
-
 #include <opencv2/opencv.hpp>
 
 #include "camera.hpp"
 #include "config.hpp"
+#include "locale.hpp"
 #include "screen.hpp"
 #include "motion_detector.hpp"
 #include "drawing.hpp"
@@ -23,17 +21,27 @@ using namespace std;
 
 class BoothApp
 {
-    Camera& cam;
-    Screen& display;
-    MotionDetector detector;
+    Camera cam;
     Config config;
+    MotionDetector detector;
+    Screen display;
 
 public:
-    BoothApp(Camera& cam, Screen& display) :
-        cam(cam),
-        display(display),
-        detector(cam.getSize())
+    BoothApp()
     {
+        // Set locale from the environment.
+        Locale::init();
+
+        // Load config settings.
+        config.load();
+
+        // Open the camera.
+        cam.open(config.camera_id);
+
+        // Set display and motion detector size to match.
+        display.setSize(cam.getSize());
+        detector.setSize(cam.getSize());
+
         // FIXME: hardcoded output dir
         int success = mkdir(config.output_dir.c_str(), 0755);
         if (success != 0 && errno != EEXIST)
@@ -158,28 +166,8 @@ public:
     }
 };
 
-class Locale {
-public:
-    static void init() {
-        const char* locale = setlocale(LC_ALL, "");
-        if (!locale) {
-            cerr << "Could not honor locale settings!" << endl;
-        }
-        bindtextdomain("booths", NULL);
-        textdomain("booths");
-    }
-};
-
 int main()
 {
-    // Set locale from the environment.
-    Locale::init();
-
-    // Open the camera and a matching display.
-    Camera cam(config.camera_id);
-    Screen display(cam.getSize());
-
     // Create the app and run its eventloop.
-    BoothApp app(cam, display);
-    app.eventloop();
+    BoothApp().eventloop();
 }

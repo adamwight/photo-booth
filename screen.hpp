@@ -8,15 +8,19 @@ using namespace cv;
 class Screen
 {
     Mat backstore;
+    const char* name;
 
 public:
-    const char* name;
-    Screen(Size size) :
-        name("ui"),
-        backstore(Mat::zeros(size, CV_8UC3))
+    Screen() :
+        name("ui")
     {
         namedWindow(name, CV_WINDOW_NORMAL);
         setWindowProperty(name, CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
+    }
+
+    void setSize(Size size)
+    {
+        backstore = Mat::zeros(size, CV_8UC3);
     }
 
     Mat getBackstore()

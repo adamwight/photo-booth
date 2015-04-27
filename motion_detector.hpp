@@ -13,8 +13,7 @@ public:
     Config config;
 
 public:
-    MotionDetector(Size size) :
-        steady(Mat::zeros(size, CV_32F)),
+    MotionDetector() :
         initialized(false),
         score(0)
     {
@@ -22,6 +21,11 @@ public:
         max_allowed_area = config.max_allowed_area;
         acculum_weight = config.acculum_weight;
         motion_score_threshold = config.motion_score_threshold;
+    }
+
+    void setSize(Size size)
+    {
+        steady = Mat::zeros(size, CV_32F);
     }
 
     void addFrame(Mat img)

@@ -1,5 +1,6 @@
-#include <libintl.h>
 #include <opencv2/opencv.hpp>
+
+#include "locale.hpp"
 
 using namespace std;
 
@@ -17,7 +18,7 @@ public:
     string sound_cmd;
     map<string, string> sounds;
 
-    Config()
+    void load()
     {
         vector<string> path_preference{
             "config.yaml",
