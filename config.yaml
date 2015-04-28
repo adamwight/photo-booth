@@ -44,10 +44,10 @@ sound_cmd: mpg321 -q %s
 sounds:
     # Played when the motion detection threshold is tripped.
     begin:
-        sounds/borg_tractor_beam.mp3
+        116505__owdeo__transporter-beam.flac
     # Capture is happening now.
     shot:
-        sounds/tos_keypress3.mp3
+        104291__ryansnook__klaxon3.flac
     # Countdown second has passed.
     tick:
-        sounds/romulan_computerbeep1.mp3
+        254316__jagadamba__clock-tick.flac

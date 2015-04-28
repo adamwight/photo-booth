@@ -25,9 +25,17 @@ Development
 * apt-get install git libopencv-dev cmake
 * Go to the root directory of this project, and run "make".
 
-To build a .deb,
+One way to build a .deb is to use the "make deb" rule:
 ```
 apt-get install devscripts debhelper
 pushd ..; tar cjf booths_1.0.0.orig.tar.bz2 booths; popd
 make deb
 ```
+
+Credits
+=======
+
+This application includes the following works from freesound,
+* S: [klaxon3.wav](http://www.freesound.org/people/ryansnook/sounds/104291/) by ryansnook -- License: CC-SA-NC
+* S: [Clock](http://www.freesound.org/people/Jagadamba/sounds/254316/) Tick by Jagadamba -- License: CC-SA-NC
+* S: [transporter beam.flac](http://www.freesound.org/people/Owdeo/sounds/116505/) by Owdeo -- License: CC-SA-NC

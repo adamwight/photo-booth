@@ -3,7 +3,6 @@
 	clean \
 	cmake \
 	compile \
-	fetch_sounds \
 	gettext \
 	gettext_compile \
 	gettext_extract \
@@ -12,7 +11,7 @@
 all: cmake compile gettext_compile
 
 # TODO: Move install prefix cruft to debian/rules.
-cmake: fetch_sounds
+cmake:
 	mkdir -p build
 	cd build && cmake -D CMAKE_INSTALL_PREFIX=/usr ..
 
@@ -22,9 +21,7 @@ compile:
 clean:
 	rm -rf build
 
-deb: clean fetch_sounds
-	# TODO: Need to workaround this.
-	# pushd ..; tar cjf booths_1.0.0.orig.tar.bz2 booths; popd
+deb: clean
 	debuild -us -uc
 
 # FIXME: Sources should come from cmake.
@@ -52,16 +49,6 @@ gettext_compile: $(MO_FILES)
 
 # TODO: msgmerge to push new strings into translation files
 gettext: gettext_extract gettext_compile
-
-fetch_sounds:
-	[ -d sounds ] || ( \
-		echo "Fetching some classy sound FX..."; \
-		mkdir sounds; \
-		cd sounds; \
-		wget http://trekcore.com/audio/aliensounds/borg_tractor_beam.mp3; \
-		wget http://trekcore.com/audio/aliensounds/romulan_computerbeep1.mp3; \
-		wget http://trekcore.com/audio/toscomputer/tos_keypress3.mp3; \
-	)
 
 install:
 	make -C build install/strip

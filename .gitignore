@@ -1,5 +1,4 @@
 build
-sounds
 debian/booths
 debian/booths.debhelper.log
 debian/booths.substvars
