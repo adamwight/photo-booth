@@ -29,20 +29,20 @@ SOURCES := $(wildcard *.cc) $(wildcard *.hpp)
 gettext_extract: $(SOURCES)
 	xgettext -k_ \
 		--copyright-holder="Adam Roses Wight <adamw@ludd.net>" \
-		--package-name=booths \
+		--package-name=photo-booth \
 		--package-version=1.0.0-rc3 \
 		--msgid-bugs-address=adamw@ludd.net \
-		-o booths.po \
+		-o photo-booth.po \
 		$(SOURCES)
 	mkdir -p locale
-	mv booths.po locale/booths.pot
+	mv photo-booth.po locale/photo-booth.pot
 
 OBJDIR=build
 $(OBJDIR)/%.mo: %.po
 	mkdir -p `dirname $@`
 	msgfmt $< -o $@
 
-PO_FILES := $(wildcard locale/*/LC_MESSAGES/booths.po)
+PO_FILES := $(wildcard locale/*/LC_MESSAGES/photo-booth.po)
 MO_FILES := $(addprefix $(OBJDIR)/, $(PO_FILES:.po=.mo))
 
 gettext_compile: $(MO_FILES)

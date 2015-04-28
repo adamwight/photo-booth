@@ -1,4 +1,4 @@
-booths (1.0.0~rc3-1) UNRELEASED; urgency=low
+photo-booth (1.0.0~rc3-1) UNRELEASED; urgency=low
 
   * Initial release. (Closes: #783432)
 

@@ -1,5 +1,3 @@
 build
-debian/booths
-debian/booths.debhelper.log
-debian/booths.substvars
+debian/photo-booth*
 debian/files
