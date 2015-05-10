@@ -37,19 +37,21 @@ max_allowed_area: 0.8
 acculum_weight: 0.33
 motion_score_threshold: 10
 
+# Allow manual trigger by hitting a key?
+key_trigger: true
+
 # Commandline to play a sound file.  Adjust if you want to use
 # a player other than the default.
-sound_cmd: mpg321 -q %s
+sound_cmd: "mpg321 -q %s"
 
 # Path to sound effect files.
 # TODO: relative path fail?
 sounds:
     # Played when the motion detection threshold is tripped.
-    begin:
-        116505__owdeo__transporter-beam.flac
+    begin: "116505__owdeo__transporter-beam.flac"
+
     # Capture is happening now.
-    shot:
-        104291__ryansnook__klaxon3.flac
+    shot: "104291__ryansnook__klaxon3.flac"
+
     # Countdown second has passed.
-    tick:
-        254316__jagadamba__clock-tick.flac
+    tick: "254316__jagadamba__clock-tick.flac"

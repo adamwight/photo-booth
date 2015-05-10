@@ -1,9 +1,9 @@
 #ifndef LOCALE_HPP
 #define LOCALE_HPP
 
-#include <iostream>                     // for operator<<, basic_ostream, etc
-#include <libintl.h>                    // for bindtextdomain, textdomain
-#include <locale.h>                     // for setlocale, LC_ALL, NULL
+#include <iostream>
+#include <libintl.h>
+#include <locale.h>
 
 using namespace std;
 
