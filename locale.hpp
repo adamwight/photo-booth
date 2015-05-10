@@ -16,8 +16,8 @@ public:
         if (!locale) {
             cerr << "Could not honor locale settings!" << endl;
         }
-        bindtextdomain("booths", NULL);
-        textdomain("booths");
+        bindtextdomain("photo-booth", NULL);
+        textdomain("photo-booth");
     }
 };
 

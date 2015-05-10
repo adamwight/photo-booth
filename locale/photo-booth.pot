@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Adam Roses Wight <adamw@ludd.net>
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is distributed under the same license as the photo-booth package.
+# Adam Roses Wight <adamw@ludd.net>, 2015.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: booths 1.0.0-rc3\n"
+"Project-Id-Version: photo-booth 1.0.0-rc3\n"
 "Report-Msgid-Bugs-To: adamw@ludd.net\n"
 "POT-Creation-Date: 2015-04-23 03:51-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"

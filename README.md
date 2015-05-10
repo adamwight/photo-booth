@@ -5,7 +5,7 @@ Installing
 ==========
 
 * sudo apt-get install mpg321 libopencv-core2.3 libopencv-imgproc2.3
-* Download and install the Debian package from the (releases)[https://github.com/adamwight/booths/releases] page, or build the binary according to the instructions in "Development" below.
+* Download and install the Debian package from the (releases)[https://github.com/adamwight/photo-booth/releases] page, or build the binary according to the instructions in "Development" below.
 
 Configuration
 =============
@@ -15,12 +15,12 @@ Edit config.yaml.
 Running
 =======
 
-* ./build/booths
+* ./build/photo-booth
 
 Development
 ===========
 
-* git clone https://github.com/adamwight/booths.git
+* git clone https://github.com/adamwight/photo-booth.git
 * Follow this [tutorial](http://docs.opencv.org/doc/tutorials/introduction/linux_install/linux_install.html#linux-installation) to build an OpenCV development environment.
 * apt-get install git libopencv-dev cmake
 * Go to the root directory of this project, and run "make".
@@ -28,7 +28,7 @@ Development
 One way to build a .deb is to use the "make deb" rule:
 ```
 apt-get install devscripts debhelper
-pushd ..; tar cjf booths_1.0.0.orig.tar.bz2 booths; popd
+pushd ..; tar cjf photo-booth.0.0.orig.tar.bz2 photo-booth; popd
 make deb
 ```
 

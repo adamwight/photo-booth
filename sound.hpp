@@ -40,7 +40,7 @@ protected:
         // TODO: Path preferences should be built into the install script.
         vector<string> path_preference{
             "", // cwd
-            "/usr/share/booths/",
+            "/usr/share/photo-booth/",
         };
 
         // Try each possible path and play the first match.

@@ -31,7 +31,7 @@ public:
     {
         vector<string> path_preference{
             "config.yaml",
-            "/etc/booths/config.yaml"
+            "/etc/photo-booth/config.yaml"
         };
         FileStorage fs;
         for (string &path : path_preference)
