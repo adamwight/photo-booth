@@ -15,6 +15,10 @@ Edit config.yaml.
 Running
 =======
 
+* photo-booth
+
+To run a development binary,
+
 * ./build/photo-booth
 
 Development
@@ -25,10 +29,11 @@ Development
 * apt-get install git libopencv-dev cmake
 * Go to the root directory of this project, and run "make".
 
-One way to build a .deb is to use the "make deb" rule:
+To build a .deb package, use the "make deb" rule:
 ```
 apt-get install devscripts debhelper
-pushd ..; tar cjf photo-booth.0.0.orig.tar.bz2 photo-booth; popd
+pushd .. && tar cjf photo-booth_1.0.0~rc3.orig.tar.bz2 photo-booth/ && popd
+
 make deb
 ```
 
@@ -37,5 +42,5 @@ Credits
 
 This application includes the following works from freesound,
 * S: [klaxon3.wav](http://www.freesound.org/people/ryansnook/sounds/104291/) by ryansnook -- License: CC-SA-NC
-* S: [Clock](http://www.freesound.org/people/Jagadamba/sounds/254316/) Tick by Jagadamba -- License: CC-SA-NC
+* S: [Clock Tick](http://www.freesound.org/people/Jagadamba/sounds/254316/) by Jagadamba -- License: CC-SA-NC
 * S: [transporter beam.flac](http://www.freesound.org/people/Owdeo/sounds/116505/) by Owdeo -- License: CC-SA-NC
