@@ -16,6 +16,7 @@ using namespace std;
 class Config
 {
 public:
+    bool debug;
     float motion_interval;
     string output_dir;
     float frame_pause;
@@ -48,6 +49,10 @@ public:
             // TODO: Log search path.
             throw runtime_error(string(_("Couldn't find config file.")));
         }
+
+        string boolString;
+        fs["debug"] >> boolString;
+        debug = (boolString == "true");
 
         fs["motion_interval"] >> motion_interval;
         fs["frame_pause"] >> frame_pause;

@@ -1,5 +1,7 @@
 %YAML:1.2
 
+debug: true
+
 # Which camera to open, zero-based device id.
 camera_id: 0
 

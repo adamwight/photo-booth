@@ -108,6 +108,10 @@ public:
         {
             score = 0;
         }
+
+        if (config.debug) {
+            cerr << "Motion score = " << score << endl;
+        }
     }
 
     bool isMotion()
