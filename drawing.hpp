@@ -117,8 +117,15 @@ public:
             text = _("Make a move.");
         else
             text = _("Keep moving!");
-        putText(img, text,
-            Point(pt1.x + 10, pt1.y + h + 30), fontFace, fontScale,
-            CV_RGB(255, 255, 255), thickness, 8);
+        // TODO: switch on non-ascii locale
+        CvFont font = fontQt("Sans", 12 * fontScale,
+            CV_RGB(255, 255, 255), CV_FONT_NORMAL,
+            CV_STYLE_NORMAL, 0);
+        addText(img, QString::fromUtf8("áéőúöüóí"), 
+            Point(pt1.x + 10, pt1.y + h + 30),
+            font);
+        //putText(img, text,
+        //    Point(pt1.x + 10, pt1.y + h + 30), fontFace, fontScale,
+        //    CV_RGB(255, 255, 255), thickness, 8);
     }
 };

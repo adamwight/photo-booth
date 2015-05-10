@@ -35,6 +35,8 @@ public:
         // Set locale from the environment.
         Locale::init();
 
+cerr << _("Keep moving!") << endl;
+cerr << QString::fromUtf8("áéőúöüóí") << endl;
         // Load config settings.
         config.load();
 
