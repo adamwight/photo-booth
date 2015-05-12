@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Photo Booth
+Exec=photo-booth
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=Video;

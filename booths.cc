@@ -67,7 +67,11 @@ public:
             display << snap;
 
             // Pause between frames, to let the box cool down.
-            waitKey(config.motion_interval * 1000);
+            int keyCode = waitKey(config.motion_interval * 1000);
+
+            if (keyCode == 'q') {
+                exit(0);
+            }
 
             if (detector.isMotion())
             {
