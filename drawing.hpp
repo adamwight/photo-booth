@@ -4,8 +4,8 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/core/mat.hpp>
 #include <opencv2/core/operations.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include <QString>
 #include <stdio.h>
 #include <string>
 #include <vector>

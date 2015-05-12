@@ -18,21 +18,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: camera.hpp:19
+#, fuzzy
 msgid "Cannot open camera"
 msgstr "No se puede abrir una cámara"
 
 #: config.hpp:38
+#, fuzzy
 msgid "Couldn't find config file."
 msgstr "No se puede abrir el archivo de configuración"
 
 #: drawing.hpp:104
+#, fuzzy
 msgid "Idle"
 msgstr "Inactivo"
 
 #: drawing.hpp:106
+#, fuzzy
 msgid "Make a move."
 msgstr "Salta como conejo"
 
 #: drawing.hpp:108
+#, fuzzy
 msgid "Keep moving!"
 msgstr "¡Todavía no es la hora de dormir!"

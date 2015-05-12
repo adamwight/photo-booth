@@ -18,21 +18,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: camera.hpp:19
+#, fuzzy
 msgid "Cannot open camera"
 msgstr "无法打开摄像机。"
 
 #: config.hpp:38
+#, fuzzy
 msgid "Couldn't find config file."
 msgstr "未找到配置文件。"
 
 #: drawing.hpp:104
+#, fuzzy
 msgid "Idle"
 msgstr "不活跃"
 
 #: drawing.hpp:106
+#, fuzzy
 msgid "Make a move."
 msgstr "开始行动吧！"
 
 #: drawing.hpp:108
+#, fuzzy
 msgid "Keep moving!"
 msgstr "不要停止不动！"

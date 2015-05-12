@@ -69,7 +69,7 @@ protected:
         if (0 == fork())
         {
             // In child process, run the commandline in a shell.
-            char* buf = new char[1024];
+            auto buf = new char[1024];
             snprintf(buf, 1024, config.sound_cmd.c_str(), filename.c_str());
             system(buf);
             delete[](buf);

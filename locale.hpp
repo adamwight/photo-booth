@@ -17,7 +17,7 @@ public:
         if (!locale) {
             cerr << "Could not honor locale settings!" << endl;
         }
-        bindtextdomain("photo-booth", NULL);
+        bindtextdomain("photo-booth", nullptr);
         textdomain("photo-booth");
 
         QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));

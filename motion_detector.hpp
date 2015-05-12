@@ -81,11 +81,11 @@ public:
         //Mat out = Mat::zeros(difference.size(), CV_8UC3);
         //Mat out = current;
         float max_move = 0;
-        for (int i = 0; i < contours.size(); i++)
+        for (auto contour : contours)
         {
             Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
             //drawContours(out, contours, i, color, 2, 8, hierarchy, 0, Point());
-            Rect bndRect = boundingRect(contours[i]);
+            Rect bndRect = boundingRect(contour);
             Point pt1, pt2;
             pt1.x = bndRect.x;
             pt1.y = bndRect.y;
