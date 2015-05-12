@@ -5,7 +5,7 @@ Installing
 ==========
 
 * sudo apt-get install mpg321 libopencv-core2.3 libopencv-imgproc2.3
-* Download and install the Debian package from the (releases)[https://github.com/adamwight/photo-booth/releases] page, or build the binary according to the instructions in "Development" below.
+* Download and install the Debian package from the [releases](https://github.com/adamwight/photo-booth/releases) page, or build the binary according to the instructions in "Development" below.
 
 Configuration
 =============
@@ -39,8 +39,11 @@ make deb
 
 Credits
 =======
+Source code by Adam Roses Wight <adamw@ludd.net>, CC-SA-NC.
 
-This application includes the following works from freesound,
-* S: [klaxon3.wav](http://www.freesound.org/people/ryansnook/sounds/104291/) by ryansnook -- License: CC-SA-NC
+Debian packaging help from Paul Wise <pabs@debian.org>.
+
+This application is bundled with the following works from freesound,
+* S: [klaxon3](http://www.freesound.org/people/ryansnook/sounds/104291/) by ryansnook -- License: CC-SA-NC
 * S: [Clock Tick](http://www.freesound.org/people/Jagadamba/sounds/254316/) by Jagadamba -- License: CC-SA-NC
-* S: [transporter beam.flac](http://www.freesound.org/people/Owdeo/sounds/116505/) by Owdeo -- License: CC-SA-NC
+* S: [Transporter beam](http://www.freesound.org/people/Owdeo/sounds/116505/) by Owdeo -- License: CC-SA-NC
