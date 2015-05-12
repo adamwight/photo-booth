@@ -41,7 +41,7 @@ key_trigger: true
 
 # Commandline to play a sound file.  Adjust if you want to use
 # a player other than the default.
-sound_cmd: "mpg321 -q %s"
+sound_cmd: "play %s"
 
 # Path to sound effect files.
 # TODO: relative path fail?
