@@ -7,12 +7,14 @@
 #include <string>
 #include <stdexcept>
 #include <vector>
+#include <wordexp.h>
 
 #include "locale.hpp"
 
 using namespace cv;
 using namespace std;
 
+// TODO: singleton
 class Config
 {
 public:
@@ -41,6 +43,8 @@ public:
 
             if (fs.isOpened())
             {
+                // TODO: Debug level before reading config
+                //cout << "Reading configuration from " << path << endl;
                 break;
             }
         }
@@ -66,6 +70,12 @@ public:
         fs["acculum_weight"] >> acculum_weight;
         fs["motion_score_threshold"] >> motion_score_threshold;
         fs["sound_cmd"] >> sound_cmd;
+
+        // Expand output_dir path.
+        wordexp_t exp_result;
+        wordexp(output_dir.c_str(), &exp_result, 0);
+        output_dir = exp_result.we_wordv[0];
+        wordfree(&exp_result);
 
         // Copy the map of soundfiles.
         for (FileNode sound : fs["sounds"])

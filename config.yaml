@@ -1,6 +1,6 @@
 %YAML:1.2
 
-debug: true
+debug: false
 
 # Which camera to open, zero-based device id.
 camera_id: 0
@@ -25,8 +25,7 @@ frame_pause: 0.5
 satisfied_pause: 10.0
 
 # Directory path where image files will be written.
-# TODO: relative path fail?
-output_dir: booths-archive
+output_dir: ~/photo-booth-archive
 
 # Motion detection settings.
 # TODO: These numbers are twitchy, narrow ranges work at all.

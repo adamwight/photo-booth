@@ -45,7 +45,6 @@ public:
         display.setSize(cam.getSize());
         detector.setSize(cam.getSize());
 
-        // FIXME: hardcoded output dir
         int success = mkdir(config.output_dir.c_str(), 0755);
         if (success != 0 && errno != EEXIST)
         {

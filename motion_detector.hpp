@@ -28,6 +28,7 @@ public:
         initialized(false),
         score(0)
     {
+        config.load(); // FIXME
         minimum_area = config.minimum_area;
         max_allowed_area = config.max_allowed_area;
         acculum_weight = config.acculum_weight;
@@ -102,7 +103,9 @@ public:
         score -= .05;
         if (max_move > minimum_area)
         {
-//std::cerr << "Largest moving area: " << max_move << std::endl;
+            if (config.debug) {
+                cerr << "Largest moving area: " << max_move << endl;
+            }
             score += .3;
         }
         if (score < 0)

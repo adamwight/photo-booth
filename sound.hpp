@@ -31,6 +31,7 @@ protected:
 
     Sound(string name)
     {
+        config.load(); // FIXME
         filename = find_file(name);
     }
 
@@ -39,8 +40,8 @@ protected:
         // TODO: Preload and cache sounds.
         // TODO: Path preferences should be built into the install script.
         vector<string> path_preference{
-            "", // cwd
-            "/usr/share/photo-booth/",
+            "./sounds/",
+            "/usr/share/photo-booth/sounds/",
         };
 
         // Try each possible path and play the first match.
@@ -71,6 +72,9 @@ protected:
             // In child process, run the commandline in a shell.
             auto buf = new char[1024];
             snprintf(buf, 1024, config.sound_cmd.c_str(), filename.c_str());
+            if (config.debug) {
+                cout << "Playing sound " << buf << endl;
+            }
             system(buf);
             delete[](buf);
             exit(0);
