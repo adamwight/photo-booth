@@ -13,7 +13,8 @@ all: cmake compile gettext_compile
 # TODO: Move install prefix cruft to debian/rules.
 cmake:
 	mkdir -p build
-	cd build && cmake -D CMAKE_INSTALL_PREFIX=/usr ..
+	cd build && cmake \
+		-D CMAKE_INSTALL_PREFIX=/usr ..
 
 compile:
 	make -C build
@@ -24,7 +25,7 @@ clean:
 deb: clean
 	debuild -us -uc
 
-# FIXME: Sources should come from cmake.
+# FIXME: Sources and version number should come from cmake.
 SOURCES := $(wildcard *.cc) $(wildcard *.hpp)
 gettext_extract: $(SOURCES)
 	xgettext -k_ \

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <libintl.h>
 #include <locale.h>
-#include <QTextCodec>
+//#include <QTextCodec>
 
 using namespace std;
 
@@ -20,7 +20,9 @@ public:
         bindtextdomain("photo-booth", nullptr);
         textdomain("photo-booth");
 
+#ifdef WITH_QT
         QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+#endif
     }
 };
 
