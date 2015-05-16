@@ -5,7 +5,9 @@ Installing
 ==========
 
 * sudo apt-get install mpg321 libopencv-core2.3 libopencv-imgproc2.3
-* Download and install the Debian package from the [releases](https://github.com/adamwight/photo-booth/releases) page, or build the binary according to the instructions in "Development" below.
+* Download and install the Debian package from the
+[releases](https://github.com/adamwight/photo-booth/releases) page, or build
+the binary according to the instructions in "Development" below.
 
 Configuration
 =============
@@ -16,6 +18,8 @@ Running
 =======
 
 * photo-booth
+
+Press the "q" key to exit.  By default, images will be saved to ~/photo-booth-archive
 
 To run a development binary,
 
@@ -32,7 +36,7 @@ Development
 To build a .deb package, use the "make deb" rule:
 ```
 apt-get install devscripts debhelper
-pushd .. && tar cjf photo-booth_1.0.0~rc3.orig.tar.bz2 photo-booth/ && popd
+pushd .. && tar cjf photo-booth_1.0.0~rc4.orig.tar.bz2 photo-booth/ && popd
 
 make deb
 ```

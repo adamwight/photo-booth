@@ -2,7 +2,10 @@ Source: photo-booth
 Maintainer: Adam Roses Wight <adamw@ludd.net>
 Section: graphics
 Priority: optional
-Build-Depends: debhelper (>= 9), cmake, libopencv-core-dev, libopencv-imgproc-dev
+Build-Depends: debhelper (>= 9),
+ cmake,
+ libopencv-core-dev,
+ libopencv-imgproc-dev
 Standards-Version: 3.9.6.0
 Homepage: https://github.com/adamwight/photo-booth
 Vcs-Browser: https://github.com/adamwight/photo-booth
@@ -10,6 +13,9 @@ Vcs-Git: git://github.com/adamwight/photo-booth.git
 
 Package: photo-booth
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, sox
+Depends: ${shlibs:Depends},
+ ${misc:Depends},
+ sox
 Description: Self-serve photo booth software
- Flail your arms until the motion detector is activated, then beam your party into the future!
+ Flail your arms until the motion detector is activated, then beam your party
+ into the future!

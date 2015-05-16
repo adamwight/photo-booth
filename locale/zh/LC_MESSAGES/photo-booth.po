@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: booths 1.0.0-rc3\n"
+"Project-Id-Version: booths 1.0.0-rc4\n"
 "Report-Msgid-Bugs-To: adamw@ludd.net\n"
 "POT-Creation-Date: 2015-04-23 03:51-0700\n"
 "PO-Revision-Date: 2015-04-28 15:23-0700\n"
