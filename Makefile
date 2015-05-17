@@ -41,7 +41,7 @@ gettext_extract: $(SOURCES)
 OBJDIR=build
 $(OBJDIR)/%.mo: %.po
 	mkdir -p `dirname $@`
-	msgfmt $< -o $@
+	msgfmt --use-fuzzy $< -o $@
 
 PO_FILES := $(wildcard locale/*/LC_MESSAGES/photo-booth.po)
 MO_FILES := $(addprefix $(OBJDIR)/, $(PO_FILES:.po=.mo))
