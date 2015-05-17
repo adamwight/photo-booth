@@ -12,7 +12,7 @@ the binary according to the instructions in "Development" below.
 Configuration
 =============
 
-Edit config.yaml.
+Edit `/etc/photo-booth/config.yaml`.
 
 Running
 =======
@@ -20,10 +20,6 @@ Running
 * photo-booth
 
 Press the "q" key to exit.  By default, images will be saved to ~/photo-booth-archive
-
-To run a development binary,
-
-* ./build/photo-booth
 
 Development
 ===========

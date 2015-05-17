@@ -1,8 +1,9 @@
-.PHONY_TARGETS: \
+.PHONY: \
 	all \
 	clean \
 	cmake \
 	compile \
+	deb \
 	gettext \
 	gettext_compile \
 	gettext_extract \

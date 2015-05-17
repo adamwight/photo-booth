@@ -1,3 +1,4 @@
+#include <cairo/cairo.h>
 #include <ext/alloc_traits.h>
 #include <opencv2/core/core_c.h>
 #include <opencv2/core/types_c.h>
@@ -110,25 +111,65 @@ public:
         int fontFace = FONT_HERSHEY_PLAIN;
         double fontScale = 2;
         int thickness = 2;
-        string text;
-        if (progress < .1)
-            text = _("Idle");
-        else if (progress < .5)
-            text = _("Make a move.");
-        else
-            text = _("Keep moving!");
-#ifdef WITH_QT
-        CvFont font = fontQt("Sans", 12 * fontScale,
-            CV_RGB(255, 255, 255), CV_FONT_NORMAL,
-            CV_STYLE_NORMAL, 0);
-        addText(img, text,
+        string message;
+        if (progress < .1) {
+            message = _("Idle");
+        } else if (progress < .5) {
+            message = _("Make a move.");
+        } else {
+            message = _("Keep moving!");
+        }
+
+        Drawing::text(
+            img,
             Point(pt1.x + 10, pt1.y + h + 30),
-            font);
-#else
-        // TODO: Properly support non-ASCII text.
-        putText(img, text,
-            Point(pt1.x + 10, pt1.y + h + 30), fontFace, fontScale,
-            CV_RGB(255, 255, 255), thickness, 8);
-#endif
+            message
+        );
+    }
+
+    /**
+     * Adapted from http://stackoverflow.com/questions/11917124/opencv-how-to-use-other-font-than-hershey-with-cvputtext-like-arial#answer-26307882
+     */
+    static void text(Mat& img, Point2d location, string text)
+    {
+        // Create Cairo
+        cairo_surface_t* surface =
+            cairo_image_surface_create(
+                CAIRO_FORMAT_ARGB32,
+                img.cols,
+                img.rows);
+
+        cairo_t* cairo = cairo_create(surface);
+
+        // Wrap Cairo with a Mat
+        cv::Mat cairoTarget(
+                    cairo_image_surface_get_height(surface),
+                    cairo_image_surface_get_width(surface),
+                    CV_8UC4,
+                    cairo_image_surface_get_data(surface),
+                    cairo_image_surface_get_stride(surface));
+
+        // Put image onto Cairo
+        cv::cvtColor(img, cairoTarget, cv::COLOR_BGR2BGRA);
+
+        // Set font and write text
+        cairo_select_font_face (
+            cairo,
+            "monospace",
+            CAIRO_FONT_SLANT_NORMAL,
+            CAIRO_FONT_WEIGHT_NORMAL
+        );
+
+        cairo_set_font_size(cairo, 18);
+        cairo_set_source_rgb(cairo, 1.0, 1.0, 1.0);
+
+        cairo_move_to(cairo, location.x, location.y);
+        cairo_show_text(cairo, text.c_str());
+
+        // Copy the data to the output image
+        cv::cvtColor(cairoTarget, img, cv::COLOR_BGRA2BGR);
+
+        cairo_destroy(cairo);
+        cairo_surface_destroy(surface);
     }
 };
