@@ -31,9 +31,10 @@ SOURCES := $(wildcard *.cc) $(wildcard *.hpp)
 gettext_extract: $(SOURCES)
 	xgettext -k_ \
 		--copyright-holder="Adam Roses Wight <adamw@ludd.net>" \
-		--package-name=photo-booth \
-		--package-version=1.0.0-rc4 \
+		--package-name="photo-booth" \
+		--package-version="1.0.0-rc4" \
 		--msgid-bugs-address=adamw@ludd.net \
+		--language=C++ \
 		-o photo-booth.po \
 		$(SOURCES)
 	mkdir -p locale

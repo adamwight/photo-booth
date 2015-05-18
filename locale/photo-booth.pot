@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photo-booth 1.0.0-rc4\n"
 "Report-Msgid-Bugs-To: adamw@ludd.net\n"
-"POT-Creation-Date: 2015-04-23 03:51-0700\n"
+"POT-Creation-Date: 2015-05-17 18:19-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,27 +16,32 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: camera.hpp:19
-#, fuzzy
-msgid "Cannot open camera"
-msgstr ""
-
-#: config.hpp:38
+#: config.hpp:54
 #, fuzzy
 msgid "Couldn't find config file."
 msgstr ""
 
-#: drawing.hpp:104
+#: drawing.hpp:116
 #, fuzzy
 msgid "Idle"
 msgstr ""
 
-#: drawing.hpp:106
+#: drawing.hpp:118
 #, fuzzy
 msgid "Make a move."
 msgstr ""
 
-#: drawing.hpp:108
+#: drawing.hpp:120
 #, fuzzy
 msgid "Keep moving!"
+msgstr ""
+
+#: camera.hpp:31
+#, fuzzy
+msgid "Cannot open camera"
+msgstr ""
+
+#: sound.hpp:59
+#, fuzzy
+msgid "Failed to find soundfile "
 msgstr ""
