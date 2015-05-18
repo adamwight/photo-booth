@@ -9,6 +9,9 @@
 	gettext_extract \
 	install
 
+# All work is done under the build/ subdirectory.
+OBJDIR=build
+
 all: cmake compile gettext_compile
 
 # TODO: Move install prefix cruft to debian/rules.
@@ -26,9 +29,13 @@ clean:
 deb: clean
 	debuild -us -uc
 
-# FIXME: Sources and version number should come from cmake.
+PO_FILES := $(wildcard locale/*/LC_MESSAGES/photo-booth.po)
+MO_FILES := $(addprefix $(OBJDIR)/, $(PO_FILES:.po=.mo))
+
+# FIXME: Source paths and version number should come from cmake.
 SOURCES := $(wildcard *.cc) $(wildcard *.hpp)
-gettext_extract: $(SOURCES)
+gettext_extract: locale/photo-booth.pot
+locale/photo-booth.pot: $(SOURCES)
 	xgettext -k_ \
 		--copyright-holder="Adam Roses Wight <adamw@ludd.net>" \
 		--package-name="photo-booth" \
@@ -38,20 +45,23 @@ gettext_extract: $(SOURCES)
 		-o photo-booth.po \
 		$(SOURCES)
 	mkdir -p locale
-	mv photo-booth.po locale/photo-booth.pot
+	# Backwards merge to update the template.
+	msgmerge --update locale/photo-booth.pot photo-booth.po
 
-OBJDIR=build
+# Keep up to date.
+%.po: locale/photo-booth.pot
+	msgmerge --update --backup=off $@ $<
+
+gettext_update: $(PO_FILES)
+
+# Compile into a binary.
 $(OBJDIR)/%.mo: %.po
-	mkdir -p `dirname $@`
+	[ -d `dirname $@` ] || mkdir -p `dirname $@`
 	msgfmt --use-fuzzy $< -o $@
-
-PO_FILES := $(wildcard locale/*/LC_MESSAGES/photo-booth.po)
-MO_FILES := $(addprefix $(OBJDIR)/, $(PO_FILES:.po=.mo))
 
 gettext_compile: $(MO_FILES)
 
-# TODO: msgmerge to push new strings into translation files
-gettext: gettext_extract gettext_compile
+gettext: gettext_extract gettext_update gettext_compile
 
 install:
 	make -C build install/strip
