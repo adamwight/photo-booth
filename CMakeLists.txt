@@ -18,9 +18,6 @@ install(TARGETS photo-booth
 install(FILES config.yaml
     DESTINATION /etc/photo-booth
     COMPONENT config)
-install(FILES debian-menu
-    DESTINATION /usr/share/menu
-    RENAME photo-booth)
 install(FILES gnome-menu
     DESTINATION /usr/share/applications
     RENAME photo-booth.desktop)

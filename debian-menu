@@ -1,5 +1,0 @@
-?package(photo-booth):\
-    needs="X11"\
-    section="Applications/Video"\
-    title="Photo Booth"\
-    command="photo-booth"
