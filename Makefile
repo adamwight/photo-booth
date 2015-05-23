@@ -14,11 +14,12 @@ OBJDIR=build
 
 all: cmake compile gettext_compile
 
-# TODO: Move install prefix cruft to debian/rules.
+# TODO: Move path cruft to debian/rules.
 cmake:
 	mkdir -p build
 	cd build && cmake \
-		-D CMAKE_INSTALL_PREFIX=/usr ..
+		-D CMAKE_INSTALL_PREFIX=/usr \
+		-D OpenCV_DIR=/usr/share/OpenCV ..
 
 compile:
 	make -C build
