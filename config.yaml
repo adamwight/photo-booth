@@ -47,10 +47,10 @@ sound_cmd: "play -q %s"
 # TODO: relative path fail?
 sounds:
     # Played when the motion detection threshold is tripped.
-    begin: "116505__owdeo__transporter-beam.flac"
+    begin: "3647__suonho__futuretrocomputing-10-suonho-remix.flac"
 
     # Capture is happening now.
-    shot: "104291__ryansnook__klaxon3.flac"
+    shot: "51360__thecheeseman__camera-snap1.flac"
 
     # Countdown second has passed.
-    tick: "254316__jagadamba__clock-tick.flac"
+    tick: "26777__junggle__btn402.flac"

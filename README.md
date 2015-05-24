@@ -35,6 +35,6 @@ Source code by Adam Roses Wight <adamw@ludd.net>, CC-SA-NC.
 Debian packaging help from Paul Wise <pabs@debian.org>.
 
 This application is bundled with the following works from freesound,
-* S: [klaxon3](http://www.freesound.org/people/ryansnook/sounds/104291/) by ryansnook -- License: CC-SA-NC
-* S: [Clock Tick](http://www.freesound.org/people/Jagadamba/sounds/254316/) by Jagadamba -- License: CC-SA-NC
-* S: [Transporter beam](http://www.freesound.org/people/Owdeo/sounds/116505/) by Owdeo -- License: CC-SA-NC
+* S: [futuretrocomputing_10_suonho](http://www.freesound.org/people/suonho/sounds/3647/) by suonho, remixed by adamwight using `sox in out remix - trim 0:03` -- License: CC-BY-3.0
+* S: [camera_snap1](http://www.freesound.org/people/thecheeseman/sounds/51360/) by thecheeseman -- License: CC-BY-3.0
+* S: [btn402](http://www.freesound.org/people/junggle/sounds/26777/) by junggle -- License: CC-BY-3.0

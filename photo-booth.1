@@ -1,0 +1,50 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" (C) Copyright 2015 Adam Roses Wight <adamw@ludd.net>,
+.\"
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH PHOTO-BOOTH "1" "May 23, 2015"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+photo-booth \- Hands-free photo booth
+.SH SYNOPSIS
+.B photo-booth
+.br
+.SH DESCRIPTION
+
+.B photo-booth
+uses a video capture device to simulate a buttonless photo booth.  To
+get the booth's attention, start waving your arms and jumping around.
+Watch the thermometer in the corner, and smile when the sensor is
+tripped.  Four shots will be taken a few seconds apart, and a montage
+displayed for your satisfaction.  You should hear sound effects that
+indicate operation mode, and see some brief on-screen text.
+
+To quit the application, type "q" while it is idle.
+
+.SH FILES
+.TP
+/etc/photo-booth/config.yaml
+Configuration is done through this file.
+
+.TP
+$HOME/photo-booth-archive/
+Captured images.
+
+.TP
+/usr/share/photo-booth/sounds/
+Default sounds.
+
+.PP
