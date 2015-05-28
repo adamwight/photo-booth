@@ -1,5 +1,6 @@
 .PHONY: \
 	all \
+	changelog \
 	clean \
 	cmake \
 	compile \
@@ -7,7 +8,8 @@
 	gettext \
 	gettext_compile \
 	gettext_extract \
-	install
+	install \
+	release
 
 # All work is done under the build/ subdirectory.
 OBJDIR=build
@@ -25,10 +27,17 @@ compile:
 	make -C build
 
 clean:
-	rm -rf build
+	rm -rf build debian/photo-booth
+
+# TODO: Build the upstream changelog, deb, tag and upload.
+#release: changelog deb
+
+changelog:
+	git2cl > debian/upstream.changelog
 
 deb: clean
-	debuild -us -uc
+	dpkg-source -b .
+	debuild
 
 PO_FILES := $(wildcard locale/*/LC_MESSAGES/photo-booth.po)
 MO_FILES := $(addprefix $(OBJDIR)/, $(PO_FILES:.po=.mo))
