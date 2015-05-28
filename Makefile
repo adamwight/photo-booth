@@ -8,8 +8,10 @@
 	gettext \
 	gettext_compile \
 	gettext_extract \
+	has_version \
 	install \
-	release
+	release \
+	tarballs
 
 # All work is done under the build/ subdirectory.
 OBJDIR=build
@@ -29,15 +31,29 @@ compile:
 clean:
 	rm -rf build debian/photo-booth
 
+VERSION=$(shell [ -d .git ] && git tag | tail -1)
+MUNGED_VERSION=$(subst -,~,$(VERSION))
+DEB_VERSION=$(MUNGED_VERSION)-1
+ORIG_TGZ=../photo-booth_$(MUNGED_VERSION).orig.tar.gz
+DEB_TXZ=../photo-booth_$(DEB_VERSION).debian.tar.xz
+
 # TODO: Build the upstream changelog, deb, tag and upload.
-#release: changelog deb
+release: has_version changelog tarballs deb
+
+has_version:
+	[ -n "$(VERSION)" ] || exit 1
 
 changelog:
 	git2cl > debian/upstream.changelog
 
+tarballs:
+	tar --create --gzip --exclude .git --exclude debian --file $(ORIG_TGZ) .
+	tar --create --xz --exclude .git --directory debian --file $(DEB_TXZ) .
+
 deb: clean
-	dpkg-source -b .
-	debuild
+	dpkg-buildpackage -tc -us -uc
+	debsign
+	gpg --detach-sign --armor --yes $(ORIG_TGZ)
 
 PO_FILES := $(wildcard locale/*/LC_MESSAGES/photo-booth.po)
 MO_FILES := $(addprefix $(OBJDIR)/, $(PO_FILES:.po=.mo))
@@ -54,6 +70,7 @@ locale/photo-booth.pot: $(SOURCES)
 		--language=C++ \
 		-o photo-booth.po \
 		$(SOURCES)
+	sed --in-place photo-booth.po --expression=s/CHARSET/utf-8/
 	mkdir -p locale
 	# Backwards merge to update the template.
 	msgmerge --update locale/photo-booth.pot photo-booth.po
