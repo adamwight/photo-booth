@@ -1,0 +1,255 @@
+2015-05-28  Adam Roses Wight <awight@wikimedia.org>
+
+	* CHANGES.txt, Makefile: Move upstream changelog to the main repo
+
+2015-05-28  Adam Roses Wight <awight@wikimedia.org>
+
+	* Makefile: Can build dpkg from the working source dir
+
+2015-05-27  Adam Roses Wight <awight@wikimedia.org>
+
+	* sound.hpp: Warn on failed sound fx
+
+2015-05-27  Adam Roses Wight <awight@wikimedia.org>
+
+	* photo-booth.1: tweak manpage
+
+2015-05-27  Adam Roses Wight <awight@wikimedia.org>
+
+	* Makefile: Better Debian packaging script
+
+2015-05-23  Adam Roses Wight <awight@wikimedia.org>
+
+	* gnome-menu: .desktop lint
+
+2015-05-23  Adam Roses Wight <awight@wikimedia.org>
+
+	* Makefile: Use the base version number in i18n files
+
+2015-05-23  Adam Roses Wight <awight@wikimedia.org>
+
+	* .gitignore, README.md, config.yaml, photo-booth.1: Sadly swap out
+	sounds for ones with a DFSG license; write a man page
+
+2015-05-23  Adam Roses Wight <awight@wikimedia.org>
+
+	* .gitignore, Makefile, locale/es/LC_MESSAGES/photo-booth.po,
+	locale/photo-booth.pot, locale/zh/LC_MESSAGES/photo-booth.po: Update
+	version to 1.0.0-rc5
+
+2015-05-23  Adam Roses Wight <awight@wikimedia.org>
+
+	* Makefile, cmake/Modules/FindOpenCV.cmake: Fix OpenCV detection TODO: hardcoded paths not at all okay
+
+2015-05-23  Adam Roses Wight <awight@wikimedia.org>
+
+	* README.md: Should no longer need deb build instructions
+
+2015-05-23  Adam Roses Wight <awight@wikimedia.org>
+
+	* CMakeLists.txt, debian-menu: Moved the Debian menu hints into
+	packaging subdir
+
+2015-05-22  Adam Roses Wight <awight@wikimedia.org>
+
+	* .gitignore, debian/changelog, debian/compat, debian/control,
+	debian/copyright, debian/rules, debian/source/format,
+	debian/upstream/metadata, debian/watch: Move Debian packaging files
+	to a new repo
+
+2015-05-18  Adam Roses Wight <awight@wikimedia.org>
+
+	* Makefile, debian/control: Update .po files using msgmerge
+
+2015-05-17  Adam Roses Wight <awight@wikimedia.org>
+
+	* Makefile, locale/photo-booth.pot: Update .pot template
+
+2015-05-17  Adam Roses Wight <awight@wikimedia.org>
+
+	* CMakeLists.txt, Makefile, README.md,
+	cmake/Modules/FindCairo.cmake, debian/control, drawing.hpp: Support
+	UTF-8 text, using libcairo2 Closes #10
+
+2015-05-16  Adam Roses Wight <awight@wikimedia.org>
+
+	* config.yaml: Make sound player less verbose
+
+2015-05-16  Adam Roses Wight <awight@wikimedia.org>
+
+	* Makefile: Use fuzzy translations
+
+2015-05-16  Adam Roses Wight <awight@wikimedia.org>
+
+	* Makefile, README.md, debian/changelog, debian/control,
+	locale/es/LC_MESSAGES/photo-booth.po, locale/photo-booth.pot,
+	locale/zh/LC_MESSAGES/photo-booth.po: Bump version and cleanup
+
+2015-05-16  Adam Roses Wight <awight@wikimedia.org>
+
+	* CMakeLists.txt, Makefile, drawing.hpp, locale.hpp: Revert Qt UTF-8
+	font support (#10)
+
+2015-05-12  Adam Roses Wight <awight@wikimedia.org>
+
+	* CMakeLists.txt, booths.cc, debian-menu, gnome-menu, gnome.menu: 
+	Gnome menu support Introduce 'q' to quit
+
+2015-05-12  Adam Roses Wight <awight@wikimedia.org>
+
+	* CMakeLists.txt, gnome.menu: Install menu item (not working) TODO: Make it work.  Install and purge hooks.  Icon.
+
+2015-05-12  Adam Roses Wight <awight@wikimedia.org>
+
+	* config.yaml, debian/control: Play sounds with sox rather than
+	mpg321 So we support every format.
+
+2015-05-12  Adam Roses Wight <awight@wikimedia.org>
+
+	* booths.cc, config.hpp, config.yaml, debian/copyright,
+	motion_detector.hpp, sound.hpp: Config, path and license cleanup
+
+2015-05-12  Adam Roses Wight <awight@wikimedia.org>
+
+	* drawing.hpp, locale.hpp, locale/es/LC_MESSAGES/photo-booth.po,
+	locale/photo-booth.pot, locale/zh/LC_MESSAGES/photo-booth.po,
+	motion_detector.hpp, sound.hpp: i18n and lint cleanup
+
+2015-05-12  Adam Roses Wight <awight@wikimedia.org>
+
+	* README.md, debian/changelog: Cleanup
+
+2015-05-10  Adam Roses Wight <awight@wikimedia.org>
+
+	* CMakeLists.txt, README.md, drawing.hpp, locale.hpp,
+	locale/zh/LC_MESSAGES/photo-booth.po: Support non-Latin text
+	rendering
+
+2015-05-10  Adam Roses Wight <awight@wikimedia.org>
+
+	* config.yaml, drawing.hpp, locale.hpp, motion_detector.hpp: 
+	Key_trigger, cleanup
+
+2015-05-10  Adam Roses Wight <awight@wikimedia.org>
+
+	* config.hpp, config.yaml, motion_detector.hpp: debug flag
+
+2015-05-10  Adam Roses Wight <awight@wikimedia.org>
+
+	* README.md, config.hpp, locale.hpp, locale/photo-booth.pot,
+	sound.hpp: More renaming
+
+2015-04-27  Adam Roses Wight <awight@wikimedia.org>
+
+	* .gitignore, CMakeLists.txt, Makefile, debian/changelog,
+	debian/control, debian/copyright, debian/upstream/metadata,
+	debian/watch, locale/booths.pot, locale/es/LC_MESSAGES/booths.po,
+	locale/es/LC_MESSAGES/photo-booth.po, locale/photo-booth.pot: Give
+	the project a well-rounded new title "photo-booth"
+
+2015-04-27  Adam Roses Wight <awight@wikimedia.org>
+
+	* .gitignore, Makefile, README.md, config.yaml: Use synthed
+	freesounds rather than trekcore excerpts
+
+2015-04-27  Adam Roses Wight <awight@wikimedia.org>
+
+	* booths.cc, camera.hpp, config.hpp, debian/control, drawing.hpp,
+	locale.hpp, motion_detector.hpp, screen.hpp, sound.hpp, timer.hpp: 
+	include-what-you-use changes Not sure I agree with these suggestions... Most of all, it's no fun
+	to remember minor includes in opencv2.
+
+2015-04-27  Adam Roses Wight <awight@wikimedia.org>
+
+	* booths.cc, camera.hpp, config.hpp, locale.hpp,
+	motion_detector.hpp, screen.hpp: Make constructors less exciting Too much was happening in constructors, which was causing
+	initializer lists to become stupid and fragile.  Be explicit
+	instead.
+
+2015-04-27  Adam Roses Wight <awight@wikimedia.org>
+
+	* .gitignore, debian/changelog, debian/rules: Deb packaging fixes
+
+2015-04-27  Adam Roses Wight <awight@wikimedia.org>
+
+	* camera.hpp, config.yaml, sound.hpp: comments
+
+2015-04-27  Adam Roses Wight <awight@wikimedia.org>
+
+	* booths.cc, config.hpp, config.yaml: Camera device ID is
+	configurable
+
+2015-04-27  Adam Roses Wight <awight@wikimedia.org>
+
+	* booths.cc, sound.hpp: Fixes brought to you by cppcheck
+
+2015-04-26  Adam Roses Wight <awight@wikimedia.org>
+
+	* debian/changelog, debian/control, debian/rules,
+	debian/upstream/metadata, debian/watch: Add and update some more
+	Debian packaging files
+
+2015-04-26  Adam Roses Wight <awight@wikimedia.org>
+
+	* LICENSE.txt, debian/copyright: Add GPL-3 license
+
+2015-04-01  Adam Roses Wight <awight@wikimedia.org>
+
+	* .gitignore, CMakeLists.txt, Makefile, booths.cc, camera.hpp,
+	config.hpp, debian/changelog, drawing.hpp, locale/booths.pot,
+	locale/es/LC_MESSAGES/booths.po: Gettext integration
+
+2015-04-01  Adam Roses Wight <awight@wikimedia.org>
+
+	* Makefile, booths.cc, config.hpp, config.yaml, sound.hpp: 
+	Assertions; log; bugfixes * Save photos one at a time, as they are shot.  * Assert that we are not overwriting an existing file before saving
+	images.  * Fix Makefile assuming bash.  * Log failure to find the sound.  * Rename frame_pause.
+
+2015-04-01  Adam Roses Wight <awight@wikimedia.org>
+
+	* Makefile, README.md, sound.hpp: Fix make dependencies; doc;
+	comments
+
+2015-04-01  Adam Roses Wight <awight@wikimedia.org>
+
+	* README.md: Update README to explain .deb installation
+
+2015-03-31  Adam Roses Wight <awight@wikimedia.org>
+
+	* .gitignore, CMakeLists.txt, Makefile, README.md, booths.cc,
+	config.hpp, config.yaml, debian/changelog, debian/compat,
+	debian/control, debian/copyright, debian/rules,
+	debian/source/format, motion_detector.hpp, sound.hpp: Debian
+	packaging and fixups Closes #7.
+
+2015-03-30  Adam Roses Wight <awight@wikimedia.org>
+
+	* README.md: Basic README
+
+2015-03-30  Adam Roses Wight <awight@wikimedia.org>
+
+	* .gitignore, Makefile, config.hpp, config.yaml, sound.hpp: Sounds
+	are loaded using configuration Also, retrieves some default sounds as part of the build process.
+
+2015-03-30  Adam Roses Wight <awight@wikimedia.org>
+
+	* config.yaml: config.yaml TODO: config.yaml.example, working defaults...
+
+2015-03-30  Adam Roses Wight <awight@wikimedia.org>
+
+	* booths.cc, config.hpp, motion_detector.hpp: Sketchy config file
+	for knob-turning Workaround for issue #2, at least we don't have to recompile to pick
+	up new settings.
+
+2015-03-30  Adam Roses Wight <awight@wikimedia.org>
+
+	* booths.cc: Check whether we saved the file Too late for me.  closes #1
+
+2012-08-30  adamw <adamw@localhost.localdomain>
+
+	* .gitignore, CMakeLists.txt, Makefile, camera.hpp: minor tweaks
+
+2012-08-21  Adam Wight <awight@wikimedia.org>
+
+	* initial checkin
+

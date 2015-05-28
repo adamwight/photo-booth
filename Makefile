@@ -44,7 +44,7 @@ has_version:
 	[ -n "$(VERSION)" ] || exit 1
 
 changelog:
-	git2cl > debian/upstream.changelog
+	git2cl > CHANGES.txt
 
 tarballs:
 	tar --create --gzip --exclude .git --exclude debian --file $(ORIG_TGZ) .
