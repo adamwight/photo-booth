@@ -75,7 +75,10 @@ protected:
             if (config.debug) {
                 cout << "Playing sound " << buf << endl;
             }
-            system(buf);
+            int exit_code = system(buf);
+            if (exit_code != 0) {
+                cerr << "Cannot play sound!" << endl;
+            }
             delete[](buf);
             exit(0);
         }
