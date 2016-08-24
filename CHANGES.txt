@@ -1,3 +1,11 @@
+2016-08-24  Adam Roses Wight <awight@wikimedia.org>
+
+	* CHANGES.txt: Bump version for release
+
+2016-08-23  Adam Roses Wight <awight@wikimedia.org>
+
+	* README.md: Correct dependencies and license
+
 2015-05-28  Adam Roses Wight <awight@wikimedia.org>
 
 	* CHANGES.txt, Makefile: Move upstream changelog to the main repo
@@ -92,7 +100,7 @@
 
 2015-05-12  Adam Roses Wight <awight@wikimedia.org>
 
-	* CMakeLists.txt, booths.cc, debian-menu, gnome-menu, gnome.menu: 
+	* CMakeLists.txt, booths.cc, gnome.menu => debian-menu, gnome-menu: 
 	Gnome menu support Introduce 'q' to quit
 
 2015-05-12  Adam Roses Wight <awight@wikimedia.org>
@@ -143,9 +151,9 @@
 
 	* .gitignore, CMakeLists.txt, Makefile, debian/changelog,
 	debian/control, debian/copyright, debian/upstream/metadata,
-	debian/watch, locale/booths.pot, locale/es/LC_MESSAGES/booths.po,
-	locale/es/LC_MESSAGES/photo-booth.po, locale/photo-booth.pot: Give
-	the project a well-rounded new title "photo-booth"
+	debian/watch, locale/es/LC_MESSAGES/{booths.po => photo-booth.po},
+	locale/{booths.pot => photo-booth.pot}: Give the project a
+	well-rounded new title "photo-booth"
 
 2015-04-27  Adam Roses Wight <awight@wikimedia.org>
 
