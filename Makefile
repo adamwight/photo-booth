@@ -18,6 +18,8 @@ OBJDIR=build
 
 all: cmake compile gettext_compile
 
+build/Makefile: cmake
+
 # TODO: Move path cruft to debian/rules.
 cmake:
 	mkdir -p build
@@ -25,7 +27,7 @@ cmake:
 		-D CMAKE_INSTALL_PREFIX=/usr \
 		-D OpenCV_DIR=/usr/share/OpenCV ..
 
-compile:
+compile: build/Makefile
 	make -C build
 
 clean:
@@ -47,7 +49,7 @@ changelog:
 	git2cl > CHANGES.txt
 
 tarballs:
-	tar --create --gzip --exclude .git --exclude debian --file $(ORIG_TGZ) .
+	tar --create --gzip --exclude .git --exclude debian --exclude build --file $(ORIG_TGZ) .
 	tar --create --xz --exclude .git --directory debian --file $(DEB_TXZ) .
 
 deb: clean
