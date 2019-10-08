@@ -24,8 +24,7 @@ Development
 ===========
 
 * git clone https://github.com/adamwight/photo-booth.git
-* Follow this [tutorial](http://docs.opencv.org/doc/tutorials/introduction/linux_install/linux_install.html#linux-installation) to build an OpenCV development environment.
-* apt-get install git libopencv-dev cmake gettext libcairo2-dev sox libopencv-core2.\* libopencv-imgproc2.\* git2cl
+* apt-get install git libopencv-dev cmake gettext libcairo2-dev sox git2cl
 * Go to the root directory of this project, and run "make".
 
 To build the .deb package,
